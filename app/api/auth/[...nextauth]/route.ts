@@ -67,13 +67,13 @@ export const authOptions: NextAuthOptions = {
             if (!token.username && token.email) {
                 const dbConnection = new DBConnect();
                 await dbConnection.connect();
-                // Optionally fetch user to hydrate token here if desired
-                const usr = await user.findOne({ email: token.email });
+                // fetch user from the User model to hydrate the token
+                const usr = await User.findOne({ email: token.email });
                 if (usr) {
                     token.id = usr._id.toString();
                     token.email = usr.email;
-                    token.userName = usr.userName;
-                    token.role = usr.role;
+                    token.username = usr.username;
+                    // optional: token.role = usr.role;
                 }
             }
 
@@ -83,7 +83,8 @@ export const authOptions: NextAuthOptions = {
             if (session.user) {
                 session.user.id = token.id as string;
                 session.user.email = token.email as string;
-                session.user.userName = token.userName as string | undefined;
+                // expose consistent "username" to the client session
+                (session.user as any).username = token.username as string | undefined;
             }
             return session;
         },
@@ -93,4 +94,3 @@ export const authOptions: NextAuthOptions = {
 const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };
-

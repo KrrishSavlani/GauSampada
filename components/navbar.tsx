@@ -10,26 +10,26 @@ export default function Navbar() {
       <nav style={styles.navbar}>
         {/* Logo */}
         <div style={styles.logo}>
-          🐄 AI Cattle Vision
+          GauSampada
         </div>
 
         {/* Navigation Links */}
         <ul style={styles.navLinks}>
           <li>
             <Link
-                href="/"
+                href="/marketplace"
                 style={{
                   ...styles.link,
                   ...(pathname === "/" ? styles.active : {}),
                 }}
             >
-              Buy/Sell
+                Marketplace
             </Link>
           </li>
 
           <li>
             <Link
-                href="/reports"
+                href="/subsidies"
                 style={{
                   ...styles.link,
                   ...(pathname === "/reports" ? styles.active : {}),
@@ -41,7 +41,7 @@ export default function Navbar() {
 
           <li>
             <Link
-                href="/settings"
+                href="/voiceChat"
                 style={{
                   ...styles.link,
                   ...(pathname === "/settings" ? styles.active : {}),
