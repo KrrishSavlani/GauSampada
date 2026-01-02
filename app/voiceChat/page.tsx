@@ -1,7 +1,7 @@
 'use client';
 
-
-return (
+export default function VoiceChat() {
+  return (
     <div style={styles.container}>
 
       {/* Left Section */}
@@ -35,8 +35,8 @@ return (
         </div>
 
         <input
-          style={styles.input}
-          placeholder="Ask AI..."
+            style={styles.input}
+            placeholder="Ask AI..."
         />
         <button style={styles.button}>Send</button>
       </aside>
