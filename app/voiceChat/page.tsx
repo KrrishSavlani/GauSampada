@@ -1,47 +1,47 @@
 'use client';
 
 export default function voiceChat(){
-return (
-    <div style={styles.container}>
+  return (
+      <div style={styles.container}>
 
-      {/* Left Section */}
-      <aside style={styles.sidebar}>
-        <h3>Menu</h3>
-        <p>Dashboard</p>
-        <p>Upload Image</p>
-        <p>History</p>
-      </aside>
-
-      {/* Main Section */}
-      <main style={styles.main}>
-        <h2>Cattle & Buffalo Recognition</h2>
-
-        <div style={styles.imageBox}>
+        {/* Left Section */}
+        <aside style={styles.sidebar}>
+          <h3>Menu</h3>
+          <p>Dashboard</p>
           <p>Upload Image</p>
-          <button style={styles.button}>Upload</button>
-        </div>
+          <p>History</p>
+        </aside>
 
-        <p style={{ marginTop: "20px" }}>
-          AI will identify cattle or buffalo from the image.
-        </p>
-      </main>
+        {/* Main Section */}
+        <main style={styles.main}>
+          <h2>Cattle & Buffalo Recognition</h2>
 
-      {/* AI Chat Section */}
-      <aside style={styles.chat}>
-        <h3>AI Assistant</h3>
+          <div style={styles.imageBox}>
+            <p>Upload Image</p>
+            <button style={styles.button}>Upload</button>
+          </div>
 
-        <div style={styles.chatBox}>
-          AI: Hello! How can I help you?
-        </div>
+          <p style={{ marginTop: "20px" }}>
+            AI will identify cattle or buffalo from the image.
+          </p>
+        </main>
 
-        <input
-          style={styles.input}
-          placeholder="Ask AI..."
-        />
-        <button style={styles.button}>Send</button>
-      </aside>
+        {/* AI Chat Section */}
+        <aside style={styles.chat}>
+          <h3>AI Assistant</h3>
 
-    </div>
+          <div style={styles.chatBox}>
+            AI: Hello! How can I help you?
+          </div>
+
+          <input
+              style={styles.input}
+              placeholder="Ask AI..."
+          />
+          <button style={styles.button}>Send</button>
+        </aside>
+
+      </div>
   );
 }
 

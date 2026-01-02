@@ -7,51 +7,51 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav style={styles.navbar}>
-      {/* Logo */}
-      <div style={styles.logo}>
-        🐄 AI Cattle Vision
-      </div>
+      <nav style={styles.navbar}>
+        {/* Logo */}
+        <div style={styles.logo}>
+          🐄 AI Cattle Vision
+        </div>
 
-      {/* Navigation Links */}
-      <ul style={styles.navLinks}>
-        <li>
-          <Link
-            href="/"
-            style={{
-              ...styles.link,
-              ...(pathname === "/" ? styles.active : {}),
-            }}
-          >
-            Buy/Sell
-          </Link>
-        </li>
+        {/* Navigation Links */}
+        <ul style={styles.navLinks}>
+          <li>
+            <Link
+                href="/"
+                style={{
+                  ...styles.link,
+                  ...(pathname === "/" ? styles.active : {}),
+                }}
+            >
+              Buy/Sell
+            </Link>
+          </li>
 
-        <li>
-          <Link
-            href="/reports"
-            style={{
-              ...styles.link,
-              ...(pathname === "/reports" ? styles.active : {}),
-            }}
-          >
-            Subcidy
-          </Link>
-        </li>
+          <li>
+            <Link
+                href="/reports"
+                style={{
+                  ...styles.link,
+                  ...(pathname === "/reports" ? styles.active : {}),
+                }}
+            >
+              Subcidy
+            </Link>
+          </li>
 
-        <li>
-          <Link
-            href="/settings"
-            style={{
-              ...styles.link,
-              ...(pathname === "/settings" ? styles.active : {}),
-            }}
-          >
-            MY Al Chat
-          </Link>
-        </li>
-      </ul>
-    </nav>
+          <li>
+            <Link
+                href="/settings"
+                style={{
+                  ...styles.link,
+                  ...(pathname === "/settings" ? styles.active : {}),
+                }}
+            >
+              MY Al Chat
+            </Link>
+          </li>
+        </ul>
+      </nav>
   );
 }
 
