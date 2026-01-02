@@ -1,6 +1,6 @@
 'use client';
 
-
+export default function voiceChat(){
 return (
     <div style={styles.container}>
 
