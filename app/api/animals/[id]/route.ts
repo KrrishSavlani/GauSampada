@@ -42,3 +42,49 @@ export async function GET(
         );
     }
 }
+
+
+export async function DELETE(
+    request: Request,
+    { params }: { params: Promise<{ id: string }> }
+) {
+    try {
+        const { id } = await params;
+
+        // ✅ Validate ObjectId
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return NextResponse.json(
+                { message: "Invalid animal ID" },
+                { status: 400 }
+            );
+        }
+
+        const db = new DBConnect();
+        await db.connect();
+
+        // ✅ Find & delete
+        const deletedAnimal = await Animal.findByIdAndDelete(id);
+
+        if (!deletedAnimal) {
+            return NextResponse.json(
+                { message: "Animal not found" },
+                { status: 404 }
+            );
+        }
+
+        return NextResponse.json(
+            {
+                message: "Animal deleted successfully",
+                id: deletedAnimal._id,
+            },
+            { status: 200 }
+        );
+    } catch (error) {
+        console.error("Error deleting animal:", error);
+        return NextResponse.json(
+            { message: "Internal server error" },
+            { status: 500 }
+        );
+    }
+}
+
