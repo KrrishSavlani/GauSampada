@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
+import mongoose from "mongoose";
 import DBConnect from "@/lib/dbConnect";
 import User from "@/models/users";
 
@@ -28,7 +29,10 @@ export async function POST(request: Request) {
     const salt = await bcrypt.genSalt(10);
     const passwordHash = await bcrypt.hash(password, salt);
 
-    const newUser = new User({ username, email, passwordHash, phone, address });
+    // Generate unique ID for the user
+    const uniqueId = new mongoose.Types.ObjectId().toString();
+    
+    const newUser = new User({ id: uniqueId, username, email, passwordHash, phone, address });
     await newUser.save();
 
     return NextResponse.json({ message: 'User created' }, { status: 201 });

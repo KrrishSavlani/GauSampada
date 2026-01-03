@@ -23,7 +23,7 @@ export async function GET(
 
         // ✅ MUST await
         const animal = await Animal.findById(id)
-            .populate("seller", "name email")
+            .populate("seller", "name email phone")
             .lean();
 
         if (!animal) {

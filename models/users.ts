@@ -11,7 +11,7 @@ export interface IUser extends mongoose.Document {
 
 // Rename schema variable to UserSchema and keep fields
 const UserSchema = new mongoose.Schema({
-    id:{ type: String, unique: true },
+    id:{ type: String, unique: true, sparse: true },
     username: { type: String, required: true, unique: true },
     email: { type: String, required: true, unique: true },
     passwordHash: { type: String, required: true },
